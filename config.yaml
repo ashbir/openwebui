@@ -1,0 +1,65 @@
+model_list:
+  - model_name: claude-3-7-sonnet
+    litellm_params:
+      model: anthropic/claude-3-7-sonnet-20250219
+      api_key: os.environ/ANTHROPIC_API_KEY
+  - model_name: claude-3-7-sonnet-thinking
+    litellm_params:
+      model: anthropic/claude-3-7-sonnet-20250219
+      api_key: os.environ/ANTHROPIC_API_KEY
+      thinking: {
+        "type": "enabled",
+        "budget_tokens": 2048
+      }
+  - model_name: gpt-4o-search-preview
+    litellm_params:
+      model: openai/gpt-4o-search-preview
+      api_key: os.environ/OPENAI_API_KEY
+  - model_name: gpt-4o-mini-search-preview
+    litellm_params:
+      model: openai/gpt-4o-mini-search-preview
+      api_key: os.environ/OPENAI_API_KEY
+  - model_name: gpt-4o-mini
+    litellm_params:
+      model: openai/gpt-4o-mini
+      api_key: os.environ/OPENAI_API_KEY
+  - model_name: gpt-4o
+    litellm_params:
+      model: openai/gpt-4o
+      api_key: os.environ/OPENAI_API_KEY
+  - model_name: chatgpt-4o-latest
+    litellm_params:
+      model: openai/chatgpt-4o-latest
+      api_key: os.environ/OPENAI_API_KEY
+  - model_name: o1-mini
+    litellm_params:
+      model: openai/o1-mini
+      api_key: os.environ/OPENAI_API_KEY
+  - model_name: o3-mini
+    litellm_params:
+      model: openai/o3-mini
+      api_key: os.environ/OPENAI_API_KEY
+  - model_name: deepseek-r1
+    litellm_params:
+      model: openrouter/deepseek/deepseek-r1
+      api_key: os.environ/OPENROUTER_API_KEY
+  - model_name: deepseek-r1:free
+    litellm_params:
+      model: openrouter/deepseek/deepseek-r1:free
+      api_key: os.environ/OPENROUTER_API_KEY
+  - model_name: deepseek-reasoner
+    litellm_params:
+        model: deepseek/deepseek-reasoner
+        api_key: os.environ/DEEPSEEK_API_KEY
+  - model_name: gemini-2.0-flash-thinking-exp
+    litellm_params:
+      model: gemini/gemini-2.0-flash-thinking-exp
+      api_key: os.environ/GEMINI_API_KEY
+  - model_name: ollama/deepseek-r1:7b
+    litellm_params:
+      model: ollama/deepseek-r1:7b
+      api_base: http://localhost:11434
+      stream: True
+general_settings:
+  store_model_in_db: true
+  store_prompts_in_spend_logs: true
