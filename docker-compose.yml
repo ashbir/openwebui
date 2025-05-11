@@ -2,7 +2,7 @@ version: '3.8'  # Podman Compose is compatible with Docker Compose v3 formats
 
 services:
   litellm:
-    image: ghcr.io/berriai/litellm:litellm_stable_release_branch-v1.63.14-stable
+    image: ghcr.io/ashbir/litellm:stable-patch
     volumes:
      - ./config.yaml:/app/config.yaml
     command:
