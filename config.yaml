@@ -1,24 +1,5 @@
 model_list:
-  - model_name: claude-3-7-sonnet
-    litellm_params:
-      model: anthropic/claude-3-7-sonnet-20250219
-      api_key: os.environ/ANTHROPIC_API_KEY
-  - model_name: claude-3-7-sonnet-thinking
-    litellm_params:
-      model: anthropic/claude-3-7-sonnet-20250219
-      api_key: os.environ/ANTHROPIC_API_KEY
-      thinking: {
-        "type": "enabled",
-        "budget_tokens": 2048
-      }
-  - model_name: gpt-4o-search-preview
-    litellm_params:
-      model: openai/gpt-4o-search-preview
-      api_key: os.environ/OPENAI_API_KEY
-  - model_name: gpt-4o-mini-search-preview
-    litellm_params:
-      model: openai/gpt-4o-mini-search-preview
-      api_key: os.environ/OPENAI_API_KEY
+# openai
   - model_name: gpt-4o-mini
     litellm_params:
       model: openai/gpt-4o-mini
@@ -31,54 +12,94 @@ model_list:
     litellm_params:
       model: openai/chatgpt-4o-latest
       api_key: os.environ/OPENAI_API_KEY
-  - model_name: o1-mini
+  - model_name: gpt-4.1
     litellm_params:
-      model: openai/o1-mini
+      model: openai/gpt-4.1
       api_key: os.environ/OPENAI_API_KEY
-  - model_name: o3-mini
+  - model_name: gpt-4.1-mini
     litellm_params:
-      model: openai/o3-mini
+      model: openai/gpt-4.1-mini
       api_key: os.environ/OPENAI_API_KEY
+  - model_name: gpt-4.1-nano
+    litellm_params:
+      model: openai/gpt-4.1-nano
+      api_key: os.environ/OPENAI_API_KEY
+  - model_name: o3
+    litellm_params:
+      model: openai/o3
+      api_key: os.environ/OPENAI_API_KEY
+  - model_name: o4-mini
+    litellm_params:
+      model: openai/o4-mini
+      api_key: os.environ/OPENAI_API_KEY
+# Anthropic
+  - model_name: claude-3-7-sonnet
+    litellm_params:
+      model: anthropic/claude-3-7-sonnet-20250219
+      api_key: os.environ/ANTHROPIC_API_KEY
+  - model_name: claude-3-7-sonnet-thinking
+    litellm_params:
+      model: anthropic/claude-3-7-sonnet-20250219
+      api_key: os.environ/ANTHROPIC_API_KEY
+      thinking: {
+        "type": "enabled",
+        "budget_tokens": 2048
+      }
+# Deepseek
+  - model_name: deepseek-reasoner
+    litellm_params:
+        model: deepseek/deepseek-reasoner
+        api_key: os.environ/DEEPSEEK_API_KEY
+  - model_name: deepseek-chat
+    litellm_params:
+        model: deepseek/deepseek-chat
+        api_key: os.environ/DEEPSEEK_API_KEY
+# Gemini
+  - model_name: gemini-2.5-flash-preview
+    litellm_params:
+      model: gemini/gemini-2.5-flash-preview-04-17
+      api_key: os.environ/GEMINI_API_KEY
+      thinking: {
+        "budget_tokens": 0
+      }
+    model_info:
+      supports_reasoning: True
+  - model_name: gemini-2.5-pro-preview
+    litellm_params:
+      model: gemini/gemini-2.5-pro-preview-05-06
+      api_key: os.environ/GEMINI_API_KEY
+      thinking: {
+        type: enabled
+      }
+    model_info:
+      supports_reasoning: True
+  - model_name: gemini-2.5-flash-preview-thinking
+    litellm_params:
+      model: gemini/gemini-2.5-flash-preview-04-17
+      api_key: os.environ/GEMINI_API_KEY
+      thinking: {
+        type: enabled
+      }
+    model_info:
+      supports_reasoning: True
+# Openrouter
   - model_name: deepseek-r1
     litellm_params:
       model: openrouter/deepseek/deepseek-r1
+      api_key: os.environ/OPENROUTER_API_KEY
+  - model_name: deepseek-v3:free
+    litellm_params:
+      model: openrouter/deepseek/deepseek-chat-v3-0324:free
+      api_key: os.environ/OPENROUTER_API_KEY
+  - model_name: deepseek-v3
+    litellm_params:
+      model: openrouter/deepseek/deepseek-chat-v3-0324
       api_key: os.environ/OPENROUTER_API_KEY
   - model_name: deepseek-r1:free
     litellm_params:
       model: openrouter/deepseek/deepseek-r1:free
       api_key: os.environ/OPENROUTER_API_KEY
-  - model_name: deepseek-reasoner
-    litellm_params:
-        model: deepseek/deepseek-reasoner
-        api_key: os.environ/DEEPSEEK_API_KEY
-  - model_name: gemini-2.0-flash-thinking-exp
-    litellm_params:
-      model: gemini/gemini-2.0-flash-thinking-exp
-      api_key: os.environ/GEMINI_API_KEY
-  - model_name: local/deepseek-r1:7b
-    litellm_params:
-      model: ollama_chat/deepseek-r1:7b
-      api_base: http://host.containers.internal:11434
-    model_info:
-      supports_function_calling: true
-  - model_name: local/qwen2.5:3b
-    litellm_params:
-      model: ollama_chat/qwen2.5:3b
-      api_base: http://host.containers.internal:11434
-    model_info:
-      supports_function_calling: true
-  - model_name: local/qwen2.5-3b-instruct
-    litellm_params:
-      model: ollama_chat/hf.co/Qwen/Qwen2.5-3B-Instruct-GGUF
-      api_base: http://host.containers.internal:11434
-    model_info:
-      supports_function_calling: true
-  - model_name: local/Qwen2.5-7B-Instruct
-    litellm_params:
-      model: ollama_chat/hf.co/bartowski/Qwen2.5-7B-Instruct-GGUF:Q5_K_M
-      api_base: http://host.containers.internal:11434
-    model_info:
-      supports_function_calling: true
+# Voyage
   - model_name: voyage-3
     litellm_params:
       model: voyage/voyage-3
@@ -87,6 +108,20 @@ model_list:
     litellm_params:
       model: voyage/voyage-3-large
       api_key: os.environ/VOYAGE_API_KEY
+  - model_name: voyage/rerank-2
+    litellm_params:
+      model: voyage/rerank-2
+      api_key: os.environ/VOYAGE_API_KEY
+# Jina-ai
+  - model_name: jina-reranker-v2-base-multilingual
+    litellm_params:
+      model: jina_ai/jina-reranker-v2-base-multilingual
+      api_key: os.environ/JINA_AI_API_KEY
+# Cohere
+  - model_name: cohere/rerank-v3.5
+    litellm_params:
+      model: cohere/rerank-v3.5
+      api_key: os.environ/COHERE_API_KEY
 
 general_settings:
   store_model_in_db: true
