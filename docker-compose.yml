@@ -4,11 +4,9 @@ services:
   litellm:
     image: ghcr.io/ashbir/litellm:stable-patch
     volumes:
-     - ./config.yaml:/app/config.yaml
+     - ./config.yaml:/app/config.yaml:Z
     command:
      - "--config=/app/config.yaml"
-    ports:
-      - "4000:4000" # Map the container port to the host, change the host port if necessary
     environment:
         DATABASE_URL: "postgresql://llmproxy:dbpassword9090@db:5432/litellm"
         STORE_MODEL_IN_DB: "True"
@@ -23,6 +21,8 @@ services:
       retries: 3
       start_period: 40s
     restart: unless-stopped  # Added restart policy
+    networks:
+      - web
 
   db:
     image: postgres:16
@@ -31,8 +31,6 @@ services:
       POSTGRES_DB: litellm
       POSTGRES_USER: llmproxy
       POSTGRES_PASSWORD: dbpassword9090
-    ports:
-      - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
@@ -40,19 +38,25 @@ services:
       interval: 1s
       timeout: 5s
       retries: 10
+    networks:
+      - web
 
   prometheus:
     image: prom/prometheus
     volumes:
       - prometheus_data:/prometheus
       - ./prometheus.yml:/etc/prometheus/prometheus.yml:Z  # Added :Z for SELinux compatibility
-    ports:
-      - "9090:9090"
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
       - '--storage.tsdb.retention.time=15d'
     restart: always
+    networks:
+      - web
+
+networks:
+  web:
+    external: true
 
 volumes:
   prometheus_data:
