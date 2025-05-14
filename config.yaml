@@ -112,6 +112,10 @@ model_list:
     litellm_params:
       model: voyage/rerank-2
       api_key: os.environ/VOYAGE_API_KEY
+  - model_name: voyage/rerank-2-lite
+    litellm_params:
+      model: voyage/rerank-2-lite
+      api_key: os.environ/VOYAGE_API_KEY
 # Jina-ai
   - model_name: jina-reranker-v2-base-multilingual
     litellm_params:
