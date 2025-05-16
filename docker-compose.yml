@@ -41,25 +41,10 @@ services:
     networks:
       - web
 
-  prometheus:
-    image: prom/prometheus
-    volumes:
-      - prometheus_data:/prometheus
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml:Z  # Added :Z for SELinux compatibility
-    command:
-      - '--config.file=/etc/prometheus/prometheus.yml'
-      - '--storage.tsdb.path=/prometheus'
-      - '--storage.tsdb.retention.time=15d'
-    restart: always
-    networks:
-      - web
-
 networks:
   web:
     external: true
 
 volumes:
-  prometheus_data:
-    driver: local
   postgres_data:
     name: litellm_postgres_data
