@@ -41,10 +41,7 @@ model_list:
     litellm_params:
       model: anthropic/claude-3-7-sonnet-20250219
       api_key: os.environ/ANTHROPIC_API_KEY
-      thinking: {
-        "type": "enabled",
-        "budget_tokens": 2048
-      }
+      reasoning_effort: medium
 # Deepseek
   - model_name: deepseek-reasoner
     litellm_params:
@@ -55,50 +52,21 @@ model_list:
         model: deepseek/deepseek-chat
         api_key: os.environ/DEEPSEEK_API_KEY
 # Gemini
-  - model_name: gemini-2.5-flash-preview
+  - model_name: gemini-2.5-flash-preview-no-thinking
     litellm_params:
       model: gemini/gemini-2.5-flash-preview-04-17
       api_key: os.environ/GEMINI_API_KEY
       thinking: {
         "budget_tokens": 0
       }
-    model_info:
-      supports_reasoning: True
+  - model_name: gemini-2.5-flash-preview
+    litellm_params:
+      model: gemini/gemini-2.5-flash-preview-04-17
+      api_key: os.environ/GEMINI_API_KEY
   - model_name: gemini-2.5-pro-preview
     litellm_params:
       model: gemini/gemini-2.5-pro-preview-05-06
       api_key: os.environ/GEMINI_API_KEY
-      thinking: {
-        type: enabled
-      }
-    model_info:
-      supports_reasoning: True
-  - model_name: gemini-2.5-flash-preview-thinking
-    litellm_params:
-      model: gemini/gemini-2.5-flash-preview-04-17
-      api_key: os.environ/GEMINI_API_KEY
-      thinking: {
-        type: enabled
-      }
-    model_info:
-      supports_reasoning: True
-# Openrouter
-  - model_name: deepseek-r1
-    litellm_params:
-      model: openrouter/deepseek/deepseek-r1
-      api_key: os.environ/OPENROUTER_API_KEY
-  - model_name: deepseek-v3:free
-    litellm_params:
-      model: openrouter/deepseek/deepseek-chat-v3-0324:free
-      api_key: os.environ/OPENROUTER_API_KEY
-  - model_name: deepseek-v3
-    litellm_params:
-      model: openrouter/deepseek/deepseek-chat-v3-0324
-      api_key: os.environ/OPENROUTER_API_KEY
-  - model_name: deepseek-r1:free
-    litellm_params:
-      model: openrouter/deepseek/deepseek-r1:free
-      api_key: os.environ/OPENROUTER_API_KEY
 # Voyage
   - model_name: voyage-3
     litellm_params:
@@ -126,6 +94,33 @@ model_list:
     litellm_params:
       model: cohere/rerank-v3.5
       api_key: os.environ/COHERE_API_KEY
+# Deepinfra
+  - model_name: deepinfra/DeepSeek-V3-0324
+    litellm_params:
+      model: deepinfra/deepseek-ai/DeepSeek-V3-0324
+      api_key: os.environ/DEEPINFRA_API_KEY
+  - model_name: deepinfra/DeepSeek-R1
+    litellm_params:
+      model: deepinfra/deepseek-ai/DeepSeek-R1
+      api_key: os.environ/DEEPINFRA_API_KEY
+  - model_name: deepinfra/DeepSeek-Prover-V2-671B
+    litellm_params:
+      model: deepinfra/deepseek-ai/DeepSeek-Prover-V2-671B
+      api_key: os.environ/DEEPINFRA_API_KEY
+  - model_name: deepinfra/Qwen3-235B-A22B
+    litellm_params:
+      model: deepinfra/Qwen/Qwen3-235B-A22B
+      api_key: os.environ/DEEPINFRA_API_KEY
+  - model_name: deepinfra/Qwen3-30B-A3B
+    litellm_params:
+      model: deepinfra/Qwen/Qwen3-30B-A3B
+      api_key: os.environ/DEEPINFRA_API_KEY
+
+# Task Model
+  - model_name: task-model
+    litellm_params:
+      model: openai/gpt-4.1-mini
+      api_key: os.environ/OPENAI_API_KEY
 
 general_settings:
   store_model_in_db: true
