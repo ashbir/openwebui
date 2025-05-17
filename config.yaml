@@ -99,22 +99,37 @@ model_list:
     litellm_params:
       model: deepinfra/deepseek-ai/DeepSeek-V3-0324
       api_key: os.environ/DEEPINFRA_API_KEY
+    model_info:
+      input_cost_per_token: 0.0000003
+      output_cost_per_token: 0.00000088
   - model_name: deepinfra/DeepSeek-R1
     litellm_params:
       model: deepinfra/deepseek-ai/DeepSeek-R1
       api_key: os.environ/DEEPINFRA_API_KEY
+    model_info:
+      input_cost_per_token: 0.0000005
+      output_cost_per_token: 0.00000218
   - model_name: deepinfra/DeepSeek-Prover-V2-671B
     litellm_params:
       model: deepinfra/deepseek-ai/DeepSeek-Prover-V2-671B
       api_key: os.environ/DEEPINFRA_API_KEY
+    model_info:
+      input_cost_per_token: 0.0000007
+      output_cost_per_token: 0.00000218
   - model_name: deepinfra/Qwen3-235B-A22B
     litellm_params:
       model: deepinfra/Qwen/Qwen3-235B-A22B
       api_key: os.environ/DEEPINFRA_API_KEY
+    model_info:
+      input_cost_per_token: 0.0000001
+      output_cost_per_token: 0.0000003
   - model_name: deepinfra/Qwen3-30B-A3B
     litellm_params:
       model: deepinfra/Qwen/Qwen3-30B-A3B
       api_key: os.environ/DEEPINFRA_API_KEY
+    model_info:
+      input_cost_per_token: 0.00000014
+      output_cost_per_token: 0.0000006
 
 # Task Model
   - model_name: task-model
