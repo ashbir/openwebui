@@ -4,53 +4,65 @@ model_list:
     litellm_params:
       model: openai/gpt-4o-mini
       api_key: os.environ/OPENAI_API_KEY
+      additional_drop_params: ["user"]
   - model_name: gpt-4o
     litellm_params:
       model: openai/gpt-4o
       api_key: os.environ/OPENAI_API_KEY
+      additional_drop_params: ["user"]
   - model_name: chatgpt-4o-latest
     litellm_params:
       model: openai/chatgpt-4o-latest
       api_key: os.environ/OPENAI_API_KEY
+      additional_drop_params: ["user"]
   - model_name: gpt-4.1
     litellm_params:
       model: openai/gpt-4.1
       api_key: os.environ/OPENAI_API_KEY
+      additional_drop_params: ["user"]
   - model_name: gpt-4.1-mini
     litellm_params:
       model: openai/gpt-4.1-mini
       api_key: os.environ/OPENAI_API_KEY
+      additional_drop_params: ["user"]
   - model_name: gpt-4.1-nano
     litellm_params:
       model: openai/gpt-4.1-nano
       api_key: os.environ/OPENAI_API_KEY
+      additional_drop_params: ["user"]
   - model_name: o3
     litellm_params:
       model: openai/o3
       api_key: os.environ/OPENAI_API_KEY
+      additional_drop_params: ["user"]
   - model_name: o4-mini
     litellm_params:
       model: openai/o4-mini
       api_key: os.environ/OPENAI_API_KEY
+      additional_drop_params: ["user"]
 # Anthropic
   - model_name: claude-3-7-sonnet
     litellm_params:
       model: anthropic/claude-3-7-sonnet-20250219
       api_key: os.environ/ANTHROPIC_API_KEY
+      additional_drop_params: ["user"]
   - model_name: claude-3-7-sonnet-thinking
     litellm_params:
       model: anthropic/claude-3-7-sonnet-20250219
       api_key: os.environ/ANTHROPIC_API_KEY
       reasoning_effort: medium
+      additional_drop_params: ["user"]
 # Deepseek
   - model_name: deepseek-reasoner
     litellm_params:
-        model: deepseek/deepseek-reasoner
-        api_key: os.environ/DEEPSEEK_API_KEY
+      model: deepseek/deepseek-reasoner
+      api_key: os.environ/DEEPSEEK_API_KEY
+      additional_drop_params: ["user"]
   - model_name: deepseek-chat
     litellm_params:
-        model: deepseek/deepseek-chat
-        api_key: os.environ/DEEPSEEK_API_KEY
+      model: deepseek/deepseek-chat
+      api_key: os.environ/DEEPSEEK_API_KEY
+      additional_drop_params: ["user"]
 # Gemini
   - model_name: gemini-2.5-flash-preview-no-thinking
     litellm_params:
@@ -59,53 +71,73 @@ model_list:
       thinking: {
         "budget_tokens": 0
       }
+      additional_drop_params: ["user"]
   - model_name: gemini-2.5-flash-preview
     litellm_params:
       model: gemini/gemini-2.5-flash-preview-04-17
       api_key: os.environ/GEMINI_API_KEY
+      merge_reasoning_content_in_choices: True
+      additional_drop_params: ["user"]
   - model_name: gemini-2.5-pro-preview
     litellm_params:
       model: gemini/gemini-2.5-pro-preview-05-06
       api_key: os.environ/GEMINI_API_KEY
+      merge_reasoning_content_in_choices: True
+      additional_drop_params: ["user"]
 # Voyage
   - model_name: voyage-3
     litellm_params:
       model: voyage/voyage-3
       api_key: os.environ/VOYAGE_API_KEY
+      drop_params: true
+      additional_drop_params: ["user"]
   - model_name: voyage-3-large
     litellm_params:
       model: voyage/voyage-3-large
       api_key: os.environ/VOYAGE_API_KEY
+      drop_params: true
+      additional_drop_params: ["user"]
   - model_name: voyage/rerank-2
     litellm_params:
       model: voyage/rerank-2
       api_key: os.environ/VOYAGE_API_KEY
+      drop_params: true
+      additional_drop_params: ["user"]
   - model_name: voyage/rerank-2-lite
     litellm_params:
       model: voyage/rerank-2-lite
       api_key: os.environ/VOYAGE_API_KEY
+      drop_params: true
+      additional_drop_params: ["user"]
 # Jina-ai
   - model_name: jina-reranker-v2-base-multilingual
     litellm_params:
       model: jina_ai/jina-reranker-v2-base-multilingual
       api_key: os.environ/JINA_AI_API_KEY
+      drop_params: true
+      additional_drop_params: ["user"]
 # Cohere
   - model_name: cohere/rerank-v3.5
     litellm_params:
       model: cohere/rerank-v3.5
       api_key: os.environ/COHERE_API_KEY
+      drop_params: true
+      additional_drop_params: ["user"]
 # Deepinfra
   - model_name: deepinfra/DeepSeek-V3-0324
     litellm_params:
       model: deepinfra/deepseek-ai/DeepSeek-V3-0324
       api_key: os.environ/DEEPINFRA_API_KEY
+      additional_drop_params: ["user"]
     model_info:
       input_cost_per_token: 0.0000003
       output_cost_per_token: 0.00000088
+      additional_drop_params: ["user"]
   - model_name: deepinfra/DeepSeek-R1
     litellm_params:
       model: deepinfra/deepseek-ai/DeepSeek-R1
       api_key: os.environ/DEEPINFRA_API_KEY
+      additional_drop_params: ["user"]
     model_info:
       input_cost_per_token: 0.0000005
       output_cost_per_token: 0.00000218
@@ -113,6 +145,7 @@ model_list:
     litellm_params:
       model: deepinfra/deepseek-ai/DeepSeek-Prover-V2-671B
       api_key: os.environ/DEEPINFRA_API_KEY
+      additional_drop_params: ["user"]
     model_info:
       input_cost_per_token: 0.0000007
       output_cost_per_token: 0.00000218
@@ -120,6 +153,7 @@ model_list:
     litellm_params:
       model: deepinfra/Qwen/Qwen3-235B-A22B
       api_key: os.environ/DEEPINFRA_API_KEY
+      additional_drop_params: ["user"]
     model_info:
       input_cost_per_token: 0.0000001
       output_cost_per_token: 0.0000003
@@ -127,6 +161,7 @@ model_list:
     litellm_params:
       model: deepinfra/Qwen/Qwen3-30B-A3B
       api_key: os.environ/DEEPINFRA_API_KEY
+      additional_drop_params: ["user"]
     model_info:
       input_cost_per_token: 0.00000014
       output_cost_per_token: 0.0000006
@@ -136,7 +171,9 @@ model_list:
     litellm_params:
       model: openai/gpt-4.1-mini
       api_key: os.environ/OPENAI_API_KEY
+      additional_drop_params: ["user"]
 
 general_settings:
   store_model_in_db: true
   store_prompts_in_spend_logs: false
+  user_header_name: "X-OpenWebUI-User-Email"
